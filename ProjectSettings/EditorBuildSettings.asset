@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Samples/NetworkedPlayerController.unity
+    guid: 971101b4b4751416b9635bdfa29d0ec3
+  - enabled: 1
     path: Assets/Photon/QuantumMenu/QuantumSampleMenu.unity
     guid: f23d3edd333e1dc449a4688e04123759
   - enabled: 1
