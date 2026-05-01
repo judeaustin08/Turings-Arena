@@ -1,10 +1,13 @@
 using Fusion;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : NetworkBehaviour
 {
+    public Action onDeath;
+
     private CharacterController _cc;
     private FirstPersonCamera _fpc;
 
@@ -144,6 +147,18 @@ public class PlayerController : NetworkBehaviour
     public void DealDamageRPC(float damage)
     {
         Health -= damage;
+
+        if (Health <= 0)
+        {
+            OnDeath();
+        }
+    }
+
+    public void OnDeath()
+    {
+        Runner.Despawn(Object);
+
+        onDeath?.Invoke();
     }
 
     public void SpawnShotFx(Vector3 point)
