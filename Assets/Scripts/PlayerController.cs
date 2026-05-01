@@ -146,8 +146,7 @@ public class PlayerController : NetworkBehaviour
         Health -= damage;
     }
 
-    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
-    public void SpawnShotFxRPC(Vector3 point)
+    public void SpawnShotFx(Vector3 point)
     {
         NetworkObject fx = Runner.Spawn(fxPrefab);
         StartCoroutine(fx.GetComponent<ShotFX>().StartFX(gunTip.position, point));
@@ -167,7 +166,7 @@ public class PlayerController : NetworkBehaviour
                 other.DealDamageRPC(damage);
             }
 
-            SpawnShotFxRPC(hit.point);
+            SpawnShotFx(hit.point);
         }
     }
 }

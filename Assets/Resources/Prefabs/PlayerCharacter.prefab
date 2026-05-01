@@ -175,6 +175,7 @@ MonoBehaviour:
   damage: 10
   fxPrefab: {fileID: 8070997106935859661, guid: 1a57ce4fcc02f4f2bb864593c20d3b2a, type: 3}
   gunTip: {fileID: 165047249012156412}
+  cooldown: 0.5
   inputAsset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!1 &6065238447161087771
 GameObject:
