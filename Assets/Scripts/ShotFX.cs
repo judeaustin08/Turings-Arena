@@ -21,6 +21,6 @@ public class ShotFX : NetworkBehaviour
             yield return null;
         }
 
-        Destroy(gameObject);
+        Runner.Despawn(Object);
     }
 }

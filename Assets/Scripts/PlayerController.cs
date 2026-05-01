@@ -150,21 +150,18 @@ public class PlayerController : NetworkBehaviour
     public void SpawnShotFxRPC(Vector3 point)
     {
         NetworkObject fx = Runner.Spawn(fxPrefab);
+        Debug.Log(fx);
         StartCoroutine(fx.GetComponent<ShotFX>().StartFX(gunTip.position, point));
     }
 
     public void Shoot()
     {
         if (!weaponCooldown.ExpiredOrNotRunning(Runner)) return;
-
-        Debug.Log("Shot");
         weaponCooldown = TickTimer.CreateFromSeconds(Runner, cooldown);
 
         Ray ray = new(camAnchor.transform.position, camAnchor.transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, 100f))
         {
-            Debug.Log("Shot hit");
-
             PlayerController other;
             if (hit.collider.TryGetComponent(out other))
             {
