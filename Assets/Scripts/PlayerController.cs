@@ -150,7 +150,6 @@ public class PlayerController : NetworkBehaviour
     public void SpawnShotFxRPC(Vector3 point)
     {
         NetworkObject fx = Runner.Spawn(fxPrefab);
-        Debug.Log(fx);
         StartCoroutine(fx.GetComponent<ShotFX>().StartFX(gunTip.position, point));
     }
 
